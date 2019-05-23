@@ -6,7 +6,7 @@ source:
     url: "https://bintray.com/astrorama/archives/download_file?file_path=sextractorxx-0.1.tar.gz"
 
 build:
-    number: 5
+    number: 6
 
 test:
     commands:
