@@ -21,7 +21,7 @@ requirements:
     host:
         - elements ==5.8
         - alexandria ==2.14_p1
-        - boost ==1.69
+        - boost
         - cfitsio
         - CCfits
         - python
@@ -33,7 +33,7 @@ requirements:
     run:
         - elements ==5.8
         - alexandria ==2.14_p1
-        - boost ==1.69
+        - boost
         - cfitsio
         - CCfits
         - python
