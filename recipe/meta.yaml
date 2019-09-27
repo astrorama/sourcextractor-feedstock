@@ -19,9 +19,9 @@ requirements:
         - make
         - {{ compiler('cxx') }}
     host:
+        - boost-cpp
         - elements ==5.8
         - alexandria ==2.14_p1
-        - boost
         - cfitsio
         - CCfits
         - python
@@ -33,7 +33,7 @@ requirements:
     run:
         - elements ==5.8
         - alexandria ==2.14_p1
-        - boost
+        - boost-cpp
         - cfitsio
         - CCfits
         - python
