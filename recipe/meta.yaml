@@ -1,13 +1,13 @@
 package:
     name: sextractorxx 
-    version: "0.1"
+    version: {{ GIT_DESCRIBE_TAG }}
 
 source:
     git_rev: develop
     git_url: https://github.com/astrorama/sextractorxx.git
 
 build:
-    number: 6
+    number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
 
 test:
     commands:
