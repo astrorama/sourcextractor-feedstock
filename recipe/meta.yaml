@@ -20,7 +20,7 @@ requirements:
         - {{ compiler('cxx') }}
     host:
         - elements ==5.8
-        - alexandria ==2.14_p1
+        - alexandria ==2.14.1
         - boost ==1.70
         - cfitsio
         - CCfits
@@ -32,7 +32,7 @@ requirements:
         - ncurses
     run:
         - elements ==5.8
-        - alexandria ==2.14_p1
+        - alexandria ==2.14.1
         - boost ==1.70
         - cfitsio
         - CCfits
