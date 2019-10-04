@@ -1,6 +1,6 @@
 # About SExtractor++ 
 
-[![Build Status](https://travis-ci.org/astrorama/conda-sextractorxx.svg?branch=develop)](https://travis-ci.org/astrorama/conda-sextractorxx)
+[![Build Status](https://travis-ci.org/astrorama/conda-sextractorxx.svg?branch=master)](https://travis-ci.org/astrorama/conda-sextractorxx)
 
 Home: https://github.com/astrorama/sextractorxx.git 
 
