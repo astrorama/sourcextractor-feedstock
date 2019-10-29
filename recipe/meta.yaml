@@ -11,7 +11,7 @@ build:
 
 test:
     commands:
-        - $PREFIX/bin/sextractor++ --version
+        - $PREFIX/bin/sourcextractor++ --version
 
 requirements:
     build:
