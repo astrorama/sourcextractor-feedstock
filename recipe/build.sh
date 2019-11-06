@@ -29,4 +29,4 @@ cmake -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
 make ${MAKEFLAGS} 
 make install
 
-install -p "${RECIPE_DIR}/sextractorxx_launch.sh" "${PREFIX}/bin"
+install -p "${RECIPE_DIR}/sourcextractor_launch.sh" "${PREFIX}/bin"
