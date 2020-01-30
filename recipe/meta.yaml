@@ -1,17 +1,17 @@
 package:
-    name: sextractorxx 
+    name: sourcextractor 
     version: {{ GIT_DESCRIBE_TAG }}
 
 source:
-    git_rev: 0.6.1
-    git_url: https://github.com/astrorama/sextractorxx.git
+    git_rev: 0.8 
+    git_url: https://github.com/astrorama/sourcextractorplusplus.git
 
 build:
     number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
 
 test:
     commands:
-        - $PREFIX/bin/sextractor++ --version
+        - $PREFIX/bin/sourcextractor++ --version
 
 requirements:
     build:
@@ -44,13 +44,13 @@ requirements:
         - ncurses
 
 app:
-    entry: sextractorxx_launch.sh
-    icon: sextractorxx_64.png
-    summary: The next generation SExtractor
-    description: The next generation SExtractor
+    entry: sourcextractor_launch.sh
+    icon: sourcextractor_64.png
+    summary: The next generation Source Extractor
+    description: The next generation Source Extractor
 
 about:
-    home: https://github.com/astrorama/sextractorxx.git
-    license: LGPL
-    summary: The next generation SExtractor
+    home: https://github.com/astrorama/sourcextractorplusplus
+    license: LGPLv3+
+    summary: The next generation Source Extractor
 
