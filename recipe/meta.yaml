@@ -7,7 +7,7 @@ source:
     git_url: https://github.com/astrorama/sourcextractorplusplus.git
 
 build:
-    number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
+    number: 2
 
 test:
     commands:
@@ -28,7 +28,7 @@ requirements:
         - pytest
         - wcslib
         - fftw >=3
-        - levmar >=2.5
+        - levmar >=2.6
         - ncurses
     run:
         - elements ==5.8
@@ -40,7 +40,7 @@ requirements:
         - astropy
         - wcslib
         - fftw >=3
-        - levmar >=2.5
+        - levmar >=2.6
         - ncurses
 
 app:
