@@ -13,6 +13,9 @@ cd "${BUILD_DIR}"
 
 export CMAKE_PROJECT_PATH="${PREFIX}/lib/cmake/ElementsProject:${PREFIX}/lib64/cmake/ElementsProject"
 
+# Elements will auto-detect macports, and we do not want that
+export MACPORT_LOCATION=/tmp/xxxx
+
 cmake -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
     -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
     -DCMAKE_BUILD_TYPE:STRING=RELEASE \
@@ -22,6 +25,7 @@ cmake -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
     -DBoost_NO_BOOST_CMAKE:BOOL=ON \
     -DELEMENTS_FLAGS_SET=ON \
     -DM_LIBRARY:STRING="-lm" \
+    -DCMAKE_IGNORE_PATH="/opt/local/include;/opt/local/lib:/opt/local/bin" \
     ${CMAKE_PLATFORM_FLAGS[@]} \
     "${SRC_DIR}"
 
