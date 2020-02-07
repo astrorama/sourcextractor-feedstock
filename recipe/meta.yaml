@@ -52,5 +52,6 @@ app:
 about:
     home: https://github.com/astrorama/sourcextractorplusplus
     license: LGPLv3+
+    license_file: LICENSE
     summary: The next generation Source Extractor
 
