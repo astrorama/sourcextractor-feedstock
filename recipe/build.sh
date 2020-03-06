@@ -1,10 +1,17 @@
 set -xe
 
+COMPILER_VERSION=$(${CXX} --version | head -1 | perl -n -e'/\S+ (\([^\)]+\) ((\d+\.)+\d+))/ && print $2')
+COMPILER_ID=$(echo ${COMPILER_VERSION} | awk 'BEGIN {FS=".";} { printf $1$2 }')
+
 declare -a CMAKE_PLATFORM_FLAGS
 if [[ -n "${OSX_ARCH}" ]]; then
     CMAKE_PLATFORM_FLAGS+=(-DCMAKE_OSX_SYSROOT="${CONDA_BUILD_SYSROOT}")
+    PLATFORM="darwin"
+    COMPILER=llvm
 else
-     CMAKE_PLATFORM_FLAGS+=(-DCMAKE_TOOLCHAIN_FILE="${RECIPE_DIR}/cross-linux.cmake")
+    CMAKE_PLATFORM_FLAGS+=(-DCMAKE_TOOLCHAIN_FILE="${RECIPE_DIR}/cross-linux.cmake")
+    PLATFORM="linux"
+    COMPILER=gcc
 fi
 
 BUILD_DIR="${SRC_DIR}/build"
@@ -15,6 +22,8 @@ export CMAKE_PROJECT_PATH="${PREFIX}/lib/cmake/ElementsProject:${PREFIX}/lib64/c
 
 # Elements will auto-detect macports, and we do not want that
 export MACPORT_LOCATION=/tmp/xxxx
+
+export BINARY_TAG="x86_64-${PLATFORM}-${COMPILER}${COMPILER_ID}-opt"
 
 cmake -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
     -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
