@@ -34,7 +34,7 @@ cmake -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
     -DBoost_NO_BOOST_CMAKE:BOOL=ON \
     -DELEMENTS_FLAGS_SET=ON \
     -DM_LIBRARY:STRING="-lm" \
-    -DCMAKE_IGNORE_PATH="/opt/local/include;/opt/local/lib:/opt/local/bin" \
+    -DCMAKE_IGNORE_PATH="/opt/local/include;/opt/local/lib;/opt/local/bin" \
     ${CMAKE_PLATFORM_FLAGS[@]} \
     "${SRC_DIR}"
 
