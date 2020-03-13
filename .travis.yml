@@ -1,12 +1,5 @@
 language: generic
 
-matrix:
-    include:
-        - os: linux
-          dist: bionic
-        - os: osx
-          osx_image: xcode8.3
-
 stages:
     - build
     - test
@@ -52,7 +45,9 @@ install:
         fi
 
 jobs:
-    - stage: build
+    include:
+    - &build
+      stage: build
       if: false
       script: |
         if [ "$TRAVIS_BRANCH" = "master" ]; then
@@ -63,7 +58,8 @@ jobs:
             LABELS="pr/$TRAVIS_PULL_REQUEST_BRANCH/$TRAVIS_BRANCH"
         fi 
         conda build --user astrorama ./recipe --token "$ANACONDA_TOKEN" --label "$LABELS"
-    - stage: test
+    - &test
+      stage: test
       script: |
         conda install --yes sourcextractor
         conda install --yes git-lfs astropy scipy matplotlib pytest
@@ -84,4 +80,16 @@ jobs:
         sed -i.bak "s:pythonpath=.*:pythonpath=:" pytest.ini
         sed -i.bak '/\[pytest\]/a filterwarnings=ignore::RuntimeWarning' pytest.ini
         pytest -v -m "not report" -k "not test_misconfigured_py"
-        
+    - <<: *build
+      os: linux
+      dist: bionic
+    - <<: *build
+      os: osx
+      osx_image: xcode8.3
+    - <<: *test
+      os: linux
+      dist: bionic
+    - <<: *test
+      os: osx
+      osx_image: xcode8.3
+
