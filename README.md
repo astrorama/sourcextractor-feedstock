@@ -1,6 +1,6 @@
 # About SourceXtractor++ 
 
-[![Build Status](https://travis-ci.org/astrorama/conda-sextractorxx.svg?branch=master)](https://travis-ci.org/astrorama/conda-sextractorxx)
+[![Build Status](https://travis-ci.org/astrorama/conda-SourceXtractor.svg?branch=develop)](https://travis-ci.org/astrorama/conda-SourceXtractor)
 
 Home: https://github.com/astrorama/sourcextractorplusplus 
 

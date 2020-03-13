@@ -1,11 +1,8 @@
 language: generic
 
-matrix:
-    include:
-        - os: linux
-          dist: bionic
-        - os: osx
-          osx_image: xcode8.3
+stages:
+    - build
+    - test
 
 before_install:
     # Remove homebrew
@@ -47,13 +44,51 @@ install:
             cat $HOME/conda_build_config.yaml
         fi
 
-script: |
-    if [ "$TRAVIS_BRANCH" = "master" ]; then
-        LABELS="main"
-    elif [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; then
-        LABELS="$TRAVIS_BRANCH"
-    else
-        LABELS="pr/$TRAVIS_PULL_REQUEST_BRANCH/$TRAVIS_BRANCH"
-    fi 
-    conda build --user astrorama ./recipe --token "$ANACONDA_TOKEN" --label "$LABELS"
+jobs:
+    include:
+    - &build
+      os: linux
+      dist: bionic
+      stage: build
+      script: |
+        if [ "$TRAVIS_BRANCH" = "master" ]; then
+            LABELS="main"
+        elif [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; then
+            LABELS="$TRAVIS_BRANCH"
+        else
+            LABELS="pr/$TRAVIS_PULL_REQUEST_BRANCH/$TRAVIS_BRANCH"
+        fi 
+        conda build --user astrorama ./recipe --token "$ANACONDA_TOKEN" --label "$LABELS"
+    - &test
+      stage: test
+      os: linux
+      dist: bionic
+      script: |
+        conda update --all --yes
+        conda install --yes sourcextractor
+        conda install --yes git-lfs astropy scipy matplotlib pytest memory_profiler
+
+        GIT_LFS_SKIP_SMUDGE=1 git clone --depth=1 https://github.com/astrorama/SourceXtractor-litmus.git
+        cd SourceXtractor-litmus
+
+        BRANCHES=("${TRAVIS_BRANCH}" "${TRAVIS_PULL_REQUEST_BRANCH}" "master")
+        for b in ${BRANCHES[@]}; do
+            echo "Try $b"
+            git fetch --update-head-ok origin "$b:$b" && git checkout "$b" && break
+        done
+        git status
+        git lfs install
+        git lfs pull
+
+        sed -i.bak "s:binary=.*:binary=$(which sourcextractor++):" pytest.ini
+        sed -i.bak "s:output_area=.*:output_area=$(pwd)/reports:" pytest.ini
+        sed -i.bak "s:pythonpath=.*:pythonpath=:" pytest.ini
+        sed -i.bak '/\[pytest\]/a filterwarnings=ignore::RuntimeWarning' pytest.ini
+        pytest -v -m "not report" -k "not test_misconfigured_py"
+    - <<: *build
+      os: osx
+      osx_image: xcode8.3
+    - <<: *test
+      os: osx
+      osx_image: xcode8.3
 
