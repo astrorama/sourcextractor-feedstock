@@ -80,7 +80,7 @@ jobs:
         git lfs pull
 
         sed -i.bak "s:binary=.*:binary=$(which sourcextractor++):" pytest.ini
-        sed -i.bak "s:output_area=.*:output_area=$(pwd)/tests:" pytest.ini
+        sed -i.bak "s:output_area=.*:output_area=$(pwd)/reports:" pytest.ini
         sed -i.bak "s:pythonpath=.*:pythonpath=:" pytest.ini
         sed -i.bak '/\[pytest\]/a filterwarnings=ignore::RuntimeWarning' pytest.ini
         pytest -v -m "not report" -k "not test_misconfigured_py"
