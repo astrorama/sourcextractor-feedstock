@@ -50,7 +50,6 @@ jobs:
       os: linux
       dist: bionic
       stage: build
-      if: false
       script: |
         if [ "$TRAVIS_BRANCH" = "master" ]; then
             LABELS="main"

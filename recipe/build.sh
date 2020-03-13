@@ -1,6 +1,6 @@
 set -xe
 
-COMPILER_VERSION=$(${CXX} --version | head -1 | perl -n -e'/\S+ (\([^\)]+\) ((\d+\.)+\d+))/ && print $2')
+COMPILER_VERSION=$(${CXX} -dumpversion)
 COMPILER_ID=$(echo ${COMPILER_VERSION} | awk 'BEGIN {FS=".";} { printf $1$2 }')
 
 declare -a CMAKE_PLATFORM_FLAGS
