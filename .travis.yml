@@ -47,6 +47,8 @@ install:
 jobs:
     include:
     - &build
+      os: linux
+      dist: bionic
       stage: build
       if: false
       script: |
@@ -60,6 +62,8 @@ jobs:
         conda build --user astrorama ./recipe --token "$ANACONDA_TOKEN" --label "$LABELS"
     - &test
       stage: test
+      os: linux
+      dist: bionic
       script: |
         conda install --yes sourcextractor
         conda install --yes git-lfs astropy scipy matplotlib pytest
@@ -81,14 +85,8 @@ jobs:
         sed -i.bak '/\[pytest\]/a filterwarnings=ignore::RuntimeWarning' pytest.ini
         pytest -v -m "not report" -k "not test_misconfigured_py"
     - <<: *build
-      os: linux
-      dist: bionic
-    - <<: *build
       os: osx
       osx_image: xcode8.3
-    - <<: *test
-      os: linux
-      dist: bionic
     - <<: *test
       os: osx
       osx_image: xcode8.3
