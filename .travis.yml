@@ -65,6 +65,7 @@ jobs:
       os: linux
       dist: bionic
       script: |
+        conda update --all --yes
         conda install --yes sourcextractor
         conda install --yes git-lfs astropy scipy matplotlib pytest memory_profiler
 
@@ -77,6 +78,7 @@ jobs:
             git fetch --update-head-ok origin "$b:$b" && git checkout "$b" && break
         done
         git status
+        git lfs install
         git lfs pull
 
         sed -i.bak "s:binary=.*:binary=$(which sourcextractor++):" pytest.ini
