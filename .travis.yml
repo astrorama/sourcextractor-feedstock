@@ -1,5 +1,7 @@
 language: generic
 
+if: branch != master OR tag IS present
+
 stages:
     - build
     - test
