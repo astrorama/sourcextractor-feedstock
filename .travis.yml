@@ -68,7 +68,8 @@ jobs:
       dist: bionic
       script: |
         conda config --show channels
-        conda update --all --yes
+        conda create -n sourcex
+        conda activate sourcex
         conda install --yes sourcextractor
         conda install --yes git-lfs astropy scipy matplotlib pytest memory_profiler
 
