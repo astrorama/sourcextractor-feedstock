@@ -20,7 +20,7 @@ requirements:
         - {{ compiler('cxx') }}
     host:
         - elements ==5.10
-        - alexandria ==2.15
+        - alexandria ==2.16
         - boost ==1.70
         - cfitsio
         - CCfits
