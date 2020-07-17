@@ -92,8 +92,8 @@ jobs:
         pytest -v -m "not report" -k "not test_misconfigured_py"
     - <<: *build
       os: osx
-      osx_image: xcode8.3
+      osx_image: xcode11
     - <<: *test
       os: osx
-      osx_image: xcode8.3
+      osx_image: xcode11
 
