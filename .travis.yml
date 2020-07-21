@@ -93,7 +93,3 @@ jobs:
     - <<: *build
       os: osx
       osx_image: xcode11
-    - <<: *test
-      os: osx
-      osx_image: xcode11
-
