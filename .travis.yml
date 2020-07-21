@@ -54,7 +54,7 @@ jobs:
       dist: bionic
       stage: build
       script: |
-        if [ "$TRAVIS_BRANCH" = "master" ]; then
+        if [ -n "$TRAVIS_TAG" ]; then
             LABELS="main"
         elif [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; then
             LABELS="$TRAVIS_BRANCH"
