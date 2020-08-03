@@ -70,7 +70,7 @@ jobs:
         conda config --show channels
         conda create --yes -n sourcex
         conda activate sourcex
-        conda install --yes sourcextractor
+        conda install --yes sourcextractor==0.12
         conda install --yes git-lfs astropy scipy matplotlib pytest memory_profiler
 
         GIT_LFS_SKIP_SMUDGE=1 git clone --depth=1 https://github.com/astrorama/SourceXtractor-litmus.git
