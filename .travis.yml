@@ -89,7 +89,7 @@ jobs:
         sed -i.bak "s:output_area=.*:output_area=$(pwd)/reports:" pytest.ini
         sed -i.bak "s:pythonpath=.*:pythonpath=:" pytest.ini
         sed -i.bak '/\[pytest\]/a filterwarnings=ignore::RuntimeWarning' pytest.ini
-        travis_wait pytest -v -m "not report" -k "not test_misconfigured_py"
+        travis_wait 30 pytest -v -m "not report" -k "not test_misconfigured_py"
     - <<: *build
       os: osx
       osx_image: xcode11
