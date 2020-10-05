@@ -70,7 +70,7 @@ jobs:
         conda config --show channels
         conda create --yes -n sourcex
         conda activate sourcex
-        conda install --yes sourcextractor
+        conda install --yes sourcextractor==0.12
         conda install --yes git-lfs astropy scipy matplotlib pytest memory_profiler
 
         GIT_LFS_SKIP_SMUDGE=1 git clone --depth=1 https://github.com/astrorama/SourceXtractor-litmus.git
@@ -89,7 +89,7 @@ jobs:
         sed -i.bak "s:output_area=.*:output_area=$(pwd)/reports:" pytest.ini
         sed -i.bak "s:pythonpath=.*:pythonpath=:" pytest.ini
         sed -i.bak '/\[pytest\]/a filterwarnings=ignore::RuntimeWarning' pytest.ini
-        pytest -v -m "not report" -k "not test_misconfigured_py"
+        travis_wait 30 pytest -v -m "not report" -k "not test_misconfigured_py" -k "not gsl"
     - <<: *build
       os: osx
       osx_image: xcode11
