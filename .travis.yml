@@ -31,7 +31,6 @@ install:
     # Configure conda
     - |
         source $HOME/miniconda3/bin/activate root
-        conda config --add channels anaconda
         conda config --add channels conda-forge
         conda config --add channels astrorama
         if [ "$TRAVIS_BRANCH" != "master" ]; then
