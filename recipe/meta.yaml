@@ -1,6 +1,6 @@
 package:
     name: sourcextractor 
-    version: "0.12"
+    version: "0.13"
 
 source:
     git_rev: develop
@@ -20,13 +20,13 @@ requirements:
         - {{ compiler('cxx') }}
     host:
         - elements ==5.10
-        - alexandria ==2.16
+        - alexandria ==2.17
         - boost ==1.70
-        - cfitsio
-        - CCfits
-        - python
-        - pytest
-        - wcslib
+        - cfitsio >=3.470
+        - CCfits >=2.5
+        - python >=3.7
+        - pytest >=5.0.0
+        - wcslib >=7.3
         - fftw >=3
         - levmar >=2.6
         - gsl >=2.2.1
