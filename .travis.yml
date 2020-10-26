@@ -36,8 +36,9 @@ install:
         if [ "$TRAVIS_BRANCH" != "master" ]; then
             conda config --add channels astrorama/label/develop
         fi
-        conda install --yes --quiet conda-build
-        conda install --yes --quiet anaconda-client
+        conda config --set channel_priority strict
+        conda create --yes -n build python=3.8 conda-build anaconda-client
+        conda activate build
 
     # Configure MacOSX SDK
     - |
@@ -59,7 +60,8 @@ jobs:
             LABELS="$TRAVIS_BRANCH"
         else
             LABELS="pr/$TRAVIS_PULL_REQUEST_BRANCH/$TRAVIS_BRANCH"
-        fi 
+        fi
+        conda activate build
         conda build --no-force-upload --user astrorama ./recipe --token "$ANACONDA_TOKEN" --label "$LABELS"
     - &test
       stage: test
@@ -92,3 +94,4 @@ jobs:
     - <<: *build
       os: osx
       osx_image: xcode11
+
