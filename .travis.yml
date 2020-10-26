@@ -36,7 +36,7 @@ install:
         if [ "$TRAVIS_BRANCH" != "master" ]; then
             conda config --add channels astrorama/label/develop
         fi
-        conda config --set channel_priority strict
+        conda config --set channel_priority flexible
         conda create --yes -n build python=3.8 conda-build anaconda-client
         conda activate build
 
