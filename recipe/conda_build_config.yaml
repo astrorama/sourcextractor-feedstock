@@ -2,7 +2,7 @@ channel_sources:
   - astrorama,conda-forge,defaults
 
 channel_targets:
-  - astrorama main
+  - astrorama develop
 
 python:
   # part of a zip_keys: python, python_impl, numpy
