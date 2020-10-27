@@ -9,6 +9,8 @@ package:
 source:
     git_rev: develop
     git_url: https://github.com/astrorama/sourcextractorplusplus.git
+    patches:
+      - alexandria_2.17.1.patch
 
 build:
     number: c{{ build_number }}
