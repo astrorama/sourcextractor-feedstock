@@ -1,96 +1,24 @@
+# This file was generated automatically from conda-smithy. To update this configuration,
+# update the conda-forge.yml and/or the recipe/meta.yaml.
+
 language: generic
 
-if: branch != master OR tag IS present
 
-stages:
-    - build
-    - test
 
-before_install:
-    # Remove homebrew
-    - |
-        if [ "$TRAVIS_OS_NAME" = "osx" ]; then
-            curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall > ~/uninstall_homebrew
-            chmod +x ~/uninstall_homebrew
-            ~/uninstall_homebrew -fq
-            rm ~/uninstall_homebrew
-        fi
-
-install:
-    # Install miniconda
-    - |
-        MINICONDA_URL="https://repo.continuum.io/miniconda"
-        if [ "$TRAVIS_OS_NAME" = "osx" ]; then
-            MINICONDA_FILE="Miniconda3-latest-MacOSX-x86_64.sh"
-        else
-            MINICONDA_FILE="Miniconda3-latest-Linux-x86_64.sh"
-        fi
-        curl -L -O "${MINICONDA_URL}/${MINICONDA_FILE}"
-        bash $MINICONDA_FILE -b
-
-    # Configure conda
-    - |
-        source $HOME/miniconda3/bin/activate root
-        conda config --add channels conda-forge
-        conda config --add channels astrorama
-        if [ "$TRAVIS_BRANCH" != "master" ]; then
-            conda config --add channels astrorama/label/develop
-        fi
-        conda config --set channel_priority flexible
-        conda create --yes -n build python=3.8 conda-build anaconda-client
-        conda activate build
-
-    # Configure MacOSX SDK
-    - |
-        if [ "$TRAVIS_OS_NAME" = "osx" ]; then
-            echo -e "CONDA_BUILD_SYSROOT:\n    - $(xcrun --sdk macosx --show-sdk-path) # [osx]" > $HOME/conda_build_config.yaml
-            cat $HOME/conda_build_config.yaml
-        fi
-
-jobs:
-    include:
-    - &build
+matrix:
+  include:
+    - env: CONFIG=linux_64_python3.7.____cpython UPLOAD_PACKAGES=True PLATFORM=linux-64 DOCKER_IMAGE=condaforge/linux-anvil-comp7
       os: linux
-      dist: bionic
-      stage: build
-      script: |
-        if [ -n "$TRAVIS_TAG" ]; then
-            LABELS="main"
-        elif [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; then
-            LABELS="$TRAVIS_BRANCH"
-        else
-            LABELS="pr/$TRAVIS_PULL_REQUEST_BRANCH/$TRAVIS_BRANCH"
-        fi
-        conda activate build
-        conda build --no-force-upload --user astrorama ./recipe --token "$ANACONDA_TOKEN" --label "$LABELS"
-    - &test
-      stage: test
+      arch: amd64
+
+    - env: CONFIG=linux_64_python3.8.____cpython UPLOAD_PACKAGES=True PLATFORM=linux-64 DOCKER_IMAGE=condaforge/linux-anvil-comp7
       os: linux
-      dist: bionic
-      script: |
-        conda config --show channels
-        conda create --yes -n sourcex python=3.8 git-lfs astropy scipy matplotlib pytest memory_profiler
-        conda activate sourcex
-        conda install --yes sourcextractor==0.12
+      arch: amd64
 
-        GIT_LFS_SKIP_SMUDGE=1 git clone --depth=1 https://github.com/astrorama/SourceXtractor-litmus.git
-        cd SourceXtractor-litmus
+script:
+  - export CI=travis
+  - export GIT_BRANCH="$TRAVIS_BRANCH"
+  - export FEEDSTOCK_NAME=$(basename ${TRAVIS_REPO_SLUG})
 
-        BRANCHES=("${TRAVIS_BRANCH}" "${TRAVIS_PULL_REQUEST_BRANCH}" "master")
-        for b in ${BRANCHES[@]}; do
-            echo "Try $b"
-            git fetch --update-head-ok origin "$b:$b" && git checkout "$b" && break
-        done
-        git status
-        git lfs install
-        git lfs pull
 
-        sed -i.bak "s:binary=.*:binary=$(which sourcextractor++):" pytest.ini
-        sed -i.bak "s:output_area=.*:output_area=$(pwd)/reports:" pytest.ini
-        sed -i.bak "s:pythonpath=.*:pythonpath=:" pytest.ini
-        sed -i.bak '/\[pytest\]/a filterwarnings=ignore::RuntimeWarning' pytest.ini
-        travis_wait 30 pytest -v -m "not report" -k "not test_misconfigured_py" -k "not gsl"
-    - <<: *build
-      os: osx
-      osx_image: xcode11
-
+  - if [[ ${PLATFORM} =~ .*linux.* ]]; then ./.scripts/run_docker_build.sh; fi

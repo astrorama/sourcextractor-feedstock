@@ -1,0 +1,23 @@
+github:
+  user_or_org: astrorama 
+
+channels:
+    targets:
+      - ["astrorama", "main"]
+
+provider:
+  linux: travis
+  osx: azure
+  win: None
+
+azure:
+  store_build_artifacts: False
+
+recipe_dir: recipe
+skip_render:
+  - LICENSE.txt
+  - LICENSE
+  - .github/CONTRIBUTING.md
+  - .github/ISSUE_TEMPLATE.md
+  - .github/PULL_REQUEST_TEMPLATE.md
+  - .github/workflows
