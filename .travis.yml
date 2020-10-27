@@ -69,10 +69,9 @@ jobs:
       dist: bionic
       script: |
         conda config --show channels
-        conda create --yes -n sourcex
+        conda create --yes -n sourcex python=3.8 git-lfs astropy scipy matplotlib pytest memory_profiler
         conda activate sourcex
-        conda install --yes sourcextractor==0.12
-        conda install --yes git-lfs astropy scipy matplotlib pytest memory_profiler
+        conda install --yes sourcextractor==0.13
 
         GIT_LFS_SKIP_SMUDGE=1 git clone --depth=1 https://github.com/astrorama/SourceXtractor-litmus.git
         cd SourceXtractor-litmus
