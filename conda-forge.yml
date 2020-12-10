@@ -6,7 +6,7 @@ channels:
       - ["astrorama", "main"]
 
 provider:
-  linux: travis
+  linux: azure
   osx: azure
   win: None
 
