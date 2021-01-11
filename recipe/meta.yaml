@@ -7,7 +7,7 @@ package:
     version: {{ version }}
 
 source:
-    git_rev: fix/arm64
+    git_rev: develop
     git_url: https://github.com/astrorama/sourcextractorplusplus.git
 
 build:
