@@ -68,13 +68,6 @@ Current build status
                   <img src="https://dev.azure.com/astrorama/feedstock-builds/_apis/build/status/sourcextractor-feedstock?branchName=master&jobName=osx&configuration=osx_64_python3.8.____cpython" alt="variant">
                 </a>
               </td>
-            </tr><tr>
-              <td>osx_arm64</td>
-              <td>
-                <a href="https://dev.azure.com/astrorama/feedstock-builds/_build/latest?definitionId=3&branchName=master">
-                  <img src="https://dev.azure.com/astrorama/feedstock-builds/_apis/build/status/sourcextractor-feedstock?branchName=master&jobName=osx&configuration=osx_arm64_" alt="variant">
-                </a>
-              </td>
             </tr>
           </tbody>
         </table>
