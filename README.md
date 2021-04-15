@@ -90,6 +90,7 @@ Installing `sourcextractor` from the `astrorama` channel can be achieved by addi
 
 ```
 conda config --add channels astrorama
+conda config --set channel_priority strict
 ```
 
 Once the `astrorama` channel has been enabled, `sourcextractor` can be installed with:
