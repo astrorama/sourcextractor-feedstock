@@ -2,6 +2,13 @@
 # update the conda-forge.yml and/or the recipe/meta.yaml.
 # -*- mode: yaml -*-
 
+schedules:
+- cron: 0 19 * * 5
+  displayName: develop rebuild
+  branches:
+    include: develop
+  always: true
+
 jobs:
   - template: ./.azure-pipelines/azure-pipelines-linux.yml
   - template: ./.azure-pipelines/azure-pipelines-osx.yml
