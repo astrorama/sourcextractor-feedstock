@@ -4,9 +4,9 @@
 
 schedules:
 - cron: 0 19 * * 5
-  displayName: develop rebuild
+  displayName: "develop rebuild"
   branches:
-    include: develop
+    include: [develop]
   always: true
 
 jobs:
