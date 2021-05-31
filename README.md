@@ -48,6 +48,13 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>linux_64_python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/astrorama/feedstock-builds/_build/latest?definitionId=3&branchName=master">
+                  <img src="https://dev.azure.com/astrorama/feedstock-builds/_apis/build/status/sourcextractor-feedstock?branchName=master&jobName=linux&configuration=linux_64_python3.9.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>osx_64_python3.6.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/astrorama/feedstock-builds/_build/latest?definitionId=3&branchName=master">
@@ -66,6 +73,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/astrorama/feedstock-builds/_build/latest?definitionId=3&branchName=master">
                   <img src="https://dev.azure.com/astrorama/feedstock-builds/_apis/build/status/sourcextractor-feedstock?branchName=master&jobName=osx&configuration=osx_64_python3.8.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/astrorama/feedstock-builds/_build/latest?definitionId=3&branchName=master">
+                  <img src="https://dev.azure.com/astrorama/feedstock-builds/_apis/build/status/sourcextractor-feedstock?branchName=master&jobName=osx&configuration=osx_64_python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr>
@@ -90,6 +104,7 @@ Installing `sourcextractor` from the `astrorama` channel can be achieved by addi
 
 ```
 conda config --add channels astrorama
+conda config --set channel_priority strict
 ```
 
 Once the `astrorama` channel has been enabled, `sourcextractor` can be installed with:

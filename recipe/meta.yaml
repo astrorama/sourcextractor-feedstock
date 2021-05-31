@@ -1,6 +1,6 @@
 {% set name = "SourceXtractor" %}
-{% set version = "0.14" %}
-{% set build_number = 2 %}
+{% set version = "0.15" %}
+{% set build_number = 1 %}
 
 package:
     name: {{ name|lower }}
@@ -27,7 +27,7 @@ requirements:
     host:
         - python
         - boost
-        - alexandria ==2.18
+        - alexandria ==2.19
         - cfitsio >=3.470
         - CCfits >=2.5
         - wcslib >=7.3
