@@ -19,11 +19,12 @@ test:
 
 requirements:
     build:
+        - python                             # [build_platform != target_platform]
+        - cross-python_{{ target_platform }} # [build_platform != target_platform]
+        - cython                             # [build_platform != target_platform]
         - cmake >=3.0
         - make
         - {{ compiler('cxx') }}
-        - python                             # [build_platform != target_platform]
-        - cross-python_{{ target_platform }} # [build_platform != target_platform]
     host:
         - python
         - boost
