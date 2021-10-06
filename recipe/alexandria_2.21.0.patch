@@ -1,10 +1,11 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 487d91c6..d461c2ec 100644
+index a9486a0c..e4927936 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -6,4 +6,4 @@ find_package(ElementsProject)
  #---------------------------------------------------------------
  
  # Declare project name and version
--elements_project(SourceXtractorPlusPlus 0.15.0 USE Alexandria 2.19.0)
-+elements_project(SourceXtractorPlusPlus 0.15.0 USE Alexandria 2.21.0)
+-elements_project(SourceXtractorPlusPlus 0.15 USE Alexandria 2.19)
++elements_project(SourceXtractorPlusPlus 0.15 USE Alexandria 2.21.0)
+
