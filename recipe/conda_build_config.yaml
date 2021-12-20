@@ -4,7 +4,3 @@ channel_sources:
 channel_targets:
   - astrorama main
 
-python:
-  # part of a zip_keys: python, python_impl, numpy
-  - 3.7.* *_cpython    # [not (osx and arm64)]
-  - 3.8.* *_cpython

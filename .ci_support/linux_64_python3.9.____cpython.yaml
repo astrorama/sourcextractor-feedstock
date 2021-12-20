@@ -3,7 +3,7 @@ boost:
 cdt_name:
 - cos6
 channel_sources:
-- astrorama,conda-forge,defaults
+- astrorama/label/develop,astrorama,conda-forge,defaults
 channel_targets:
 - astrorama main
 cxx_compiler:

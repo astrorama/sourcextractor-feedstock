@@ -1,6 +1,6 @@
 {% set name = "SourceXtractor" %}
-{% set version = "0.15" %}
-{% set build_number = 2 %}
+{% set version = "0.16" %}
+{% set build_number = 1 %}
 
 package:
     name: {{ name|lower }}
@@ -9,8 +9,6 @@ package:
 source:
     git_rev: {{ version }}
     git_url: https://github.com/astrorama/sourcextractorplusplus.git
-    patches:
-      - alexandria_2.21.0.patch
 
 build:
     number: {{ build_number }}
@@ -21,22 +19,23 @@ test:
 
 requirements:
     build:
+        - python                             # [build_platform != target_platform]
+        - cross-python_{{ target_platform }} # [build_platform != target_platform]
+        - cython                             # [build_platform != target_platform]
         - cmake >=3.0
         - make
         - {{ compiler('cxx') }}
-        - python                             # [build_platform != target_platform]
-        - cross-python_{{ target_platform }} # [build_platform != target_platform]
     host:
         - python
         - boost
-        - alexandria ==2.21.0
+        - alexandria ==2.22.0
         - cfitsio >=3.470
         - CCfits >=2.5
         - wcslib >=7.3
         - fftw >=3
         - levmar >=2.6
         - gsl >=2.2.1
-        - onnx >=1.5.0                      # [not (osx and arm64)]
+        - onnxruntime >=1.9
         - ncurses ==6.2
         - readline ==8
     run:
@@ -48,7 +47,7 @@ requirements:
         - {{ pin_compatible('fftw') }}
         - {{ pin_compatible('levmar') }}
         - {{ pin_compatible('gsl') }}
-        - {{ pin_compatible('onnx') }}      # [not (osx and arm64)]
+        - {{ pin_compatible('onnxruntime') }}
         - {{ pin_compatible('ncurses') }}
         - astropy
 
