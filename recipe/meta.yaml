@@ -28,7 +28,7 @@ requirements:
     host:
         - python
         - boost
-        - alexandria ==2.22.0
+        - alexandria ==2.24.0
         - cfitsio >=3.470
         - CCfits >=2.5
         - wcslib >=7.3
