@@ -107,16 +107,41 @@ conda config --add channels astrorama
 conda config --set channel_priority strict
 ```
 
-Once the `astrorama` channel has been enabled, `sourcextractor` can be installed with:
+Once the `astrorama` channel has been enabled, `sourcextractor` can be installed with `conda`:
 
 ```
 conda install sourcextractor
 ```
 
-It is possible to list all of the versions of `sourcextractor` available on your platform with:
+or with `mamba`:
+
+```
+mamba install sourcextractor
+```
+
+It is possible to list all of the versions of `sourcextractor` available on your platform with `conda`:
 
 ```
 conda search sourcextractor --channel astrorama
+```
+
+or with `mamba`:
+
+```
+mamba search sourcextractor --channel astrorama
+```
+
+Alternatively, `mamba repoquery` may provide more information:
+
+```
+# Search all versions available on your platform:
+mamba repoquery search sourcextractor --channel astrorama
+
+# List packages depending on `sourcextractor`:
+mamba repoquery whoneeds sourcextractor --channel astrorama
+
+# List dependencies of `sourcextractor`:
+mamba repoquery depends sourcextractor --channel astrorama
 ```
 
 
