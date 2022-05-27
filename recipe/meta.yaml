@@ -1,5 +1,5 @@
 {% set name = "SourceXtractor" %}
-{% set version = "0.17" %}
+{% set version = "0.18" %}
 {% set build_number = environ.get('GIT_DESCRIBE_NUMBER', '0') %}
 
 package:
@@ -28,7 +28,7 @@ requirements:
     host:
         - python
         - boost
-        - alexandria ==2.24.0
+        - alexandria ==2.25.0
         - cfitsio >=3.470
         - CCfits >=2.5
         - wcslib >=7.3
