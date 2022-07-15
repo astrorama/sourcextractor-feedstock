@@ -1,5 +1,5 @@
 {% set name = "SourceXtractor" %}
-{% set version = "0.17" %}
+{% set version = "0.18" %}
 {% set build_number = 1 %}
 
 package:
