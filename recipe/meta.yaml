@@ -1,6 +1,6 @@
 {% set name = "SourceXtractor" %}
 {% set version = "0.18" %}
-{% set build_number = 2 %}
+{% set build_number = 3 %}
 
 package:
     name: {{ name|lower }}
@@ -47,7 +47,7 @@ requirements:
         - {{ pin_compatible('fftw') }}
         - {{ pin_compatible('levmar') }}
         - {{ pin_compatible('gsl') }}
-        - {{ pin_compatible('onnxruntime-cpp') }}
+        - {{ pin_compatible('onnxruntime-cpp', min_pin='x.x.x', max_pin='x.x.x') }}
         - {{ pin_compatible('ncurses') }}
         - astropy
 
