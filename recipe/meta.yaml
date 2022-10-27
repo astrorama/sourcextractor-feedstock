@@ -1,6 +1,6 @@
 {% set name = "SourceXtractor" %}
 {% set version = "0.19" %}
-{% set build_number = environ.get('GIT_DESCRIBE_NUMBER', '0') %}
+{% set build_number = 2 %}
 
 package:
     name: {{ name|lower }}
