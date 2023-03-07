@@ -1,13 +1,13 @@
 {% set name = "SourceXtractor" %}
-{% set version = "0.19" %}
-{% set build_number = 2 %}
+{% set version = "0.19.2" %}
+{% set build_number = 1 %}
 
 package:
     name: {{ name|lower }}
     version: {{ version }}
 
 source:
-    git_rev: "0.19d"
+    git_rev: "0.19.2"
     git_url: https://github.com/astrorama/sourcextractorplusplus.git
 
 build:
@@ -28,7 +28,7 @@ requirements:
     host:
         - python
         - boost
-        - alexandria ==2.27.0
+        - alexandria ==2.28.2
         - cfitsio >=3.470
         - CCfits >=2.5
         - wcslib >=7.3
