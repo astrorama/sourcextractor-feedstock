@@ -38,7 +38,7 @@ requirements:
         - onnxruntime-cpp ==1.12
         - ncurses ==6.2
         - readline ==8
-        - re2
+        - re2 ==2022.04.01
     run:
         - {{ pin_compatible('python', min_pin='x.x', max_pin='x.x') }}
         - {{ pin_compatible('boost', min_pin='x.x', max_pin='x.x') }}
