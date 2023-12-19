@@ -1,5 +1,5 @@
 {% set name = "SourceXtractor" %}
-{% set version = "0.19.2" %}
+{% set version = "0.21" %}
 {% set build_number = 8 %}
 
 package:
@@ -7,7 +7,7 @@ package:
     version: {{ version }}
 
 source:
-    git_rev: "0.19.2"
+    git_rev: "0.21"
     git_url: https://github.com/astrorama/sourcextractorplusplus.git
 
 build:
