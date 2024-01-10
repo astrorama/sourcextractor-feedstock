@@ -40,17 +40,17 @@ requirements:
         - readline >=8
         - re2 >=2022.04.01
     run:
-        - {{ pin_compatible('python', min_pin='x.x', max_pin='x.x') }}
-        - {{ pin_compatible('boost', min_pin='x.x', max_pin='x.x') }}
-        - {{ pin_compatible('cfitsio') }}
-        - {{ pin_compatible('CCfits') }}
-        - {{ pin_compatible('wcslib') }}
-        - {{ pin_compatible('fftw') }}
-        - {{ pin_compatible('levmar') }}
-        - {{ pin_compatible('gsl') }}
-        - {{ pin_compatible('onnxruntime-cpp', min_pin='x.x.x', max_pin='x.x.x') }}
-        - {{ pin_compatible('ncurses') }}
-        - {{ pin_compatible('re2') }}
+        - {{ pin_compatible('python', max_pin='x.x') }}
+        - {{ pin_compatible('boost', max_pin='x.x') }}
+        - {{ pin_compatible('cfitsio', max_pin='x.x') }}
+        - {{ pin_compatible('CCfits', max_pin='x.x') }}
+        - {{ pin_compatible('wcslib', max_pin='x.x') }}
+        - {{ pin_compatible('fftw', max_pin='x.x') }}
+        - {{ pin_compatible('levmar', max_pin='x.x') }}
+        - {{ pin_compatible('gsl', max_pin='x.x') }}
+        - {{ pin_compatible('onnxruntime-cpp', max_pin='x.x') }}
+        - {{ pin_compatible('ncurses', max_pin='x.x') }}
+        - {{ pin_compatible('re2', max_pin='x.x.x') }}
         - astropy
 
 app:
