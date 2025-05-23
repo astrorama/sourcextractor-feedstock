@@ -1,6 +1,6 @@
 {% set name = "SourceXtractor" %}
 {% set version = "1.0.3" %}
-{% set build_number = 1 %}
+{% set build_number = 2 %}
 
 package:
     name: {{ name|lower }}
@@ -22,13 +22,13 @@ requirements:
         - python                             # [build_platform != target_platform]
         - cross-python_{{ target_platform }} # [build_platform != target_platform]
         - cython                             # [build_platform != target_platform]
-        - cmake >=3.0,<4.0
+        - cmake >=3.25,<4.0
         - make
         - {{ compiler('cxx') }}
     host:
         - python
         - boost
-        - alexandria ==2.31.4
+        - alexandria ==2.32.0
         - cfitsio >=3.470
         - CCfits >=2.5
         - wcslib >=7.3
