@@ -27,34 +27,6 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_python3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/astrorama/feedstock-builds/_build/latest?definitionId=3&branchName=main">
-                  <img src="https://dev.azure.com/astrorama/feedstock-builds/_apis/build/status/sourcextractor-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.11.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/astrorama/feedstock-builds/_build/latest?definitionId=3&branchName=main">
-                  <img src="https://dev.azure.com/astrorama/feedstock-builds/_apis/build/status/sourcextractor-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.12.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/astrorama/feedstock-builds/_build/latest?definitionId=3&branchName=main">
-                  <img src="https://dev.azure.com/astrorama/feedstock-builds/_apis/build/status/sourcextractor-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.12.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.9.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/astrorama/feedstock-builds/_build/latest?definitionId=3&branchName=main">
-                  <img src="https://dev.azure.com/astrorama/feedstock-builds/_apis/build/status/sourcextractor-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.9.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>osx_64_python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/astrorama/feedstock-builds/_build/latest?definitionId=3&branchName=main">
@@ -76,38 +48,10 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_python3.9.____cpython</td>
+              <td>osx_64_python3.13.____cp313</td>
               <td>
                 <a href="https://dev.azure.com/astrorama/feedstock-builds/_build/latest?definitionId=3&branchName=main">
-                  <img src="https://dev.azure.com/astrorama/feedstock-builds/_apis/build/status/sourcextractor-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.9.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_python3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/astrorama/feedstock-builds/_build/latest?definitionId=3&branchName=main">
-                  <img src="https://dev.azure.com/astrorama/feedstock-builds/_apis/build/status/sourcextractor-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_python3.11.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/astrorama/feedstock-builds/_build/latest?definitionId=3&branchName=main">
-                  <img src="https://dev.azure.com/astrorama/feedstock-builds/_apis/build/status/sourcextractor-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_python3.12.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/astrorama/feedstock-builds/_build/latest?definitionId=3&branchName=main">
-                  <img src="https://dev.azure.com/astrorama/feedstock-builds/_apis/build/status/sourcextractor-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.12.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_python3.9.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/astrorama/feedstock-builds/_build/latest?definitionId=3&branchName=main">
-                  <img src="https://dev.azure.com/astrorama/feedstock-builds/_apis/build/status/sourcextractor-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/astrorama/feedstock-builds/_apis/build/status/sourcextractor-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.13.____cp313" alt="variant">
                 </a>
               </td>
             </tr>
@@ -187,7 +131,7 @@ merged, the recipe will be re-built and uploaded automatically to the
 everybody to install and use from the `astrorama` channel.
 Note that all branches in the astrorama/sourcextractor-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
-on branches in forks and branches in the main repository should only be used to
+on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
