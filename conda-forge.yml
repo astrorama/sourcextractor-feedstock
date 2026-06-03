@@ -1,10 +1,6 @@
 github:
   user_or_org: astrorama 
 
-channels:
-    targets:
-      - ["astrorama", "main"]
-
 build_platform:
   osx_arm64: osx_64
 

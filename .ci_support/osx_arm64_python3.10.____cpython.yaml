@@ -1,7 +1,9 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '11.0'
-boost:
-- 1.78.0
+MACOSX_SDK_VERSION:
+- '11.0'
+cfitsio:
+- 4.6.2
 channel_sources:
 - astrorama,conda-forge,defaults
 channel_targets:
@@ -9,16 +11,24 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '14'
+- '18'
+fftw:
+- '3'
+gsl:
+- '2.7'
 macos_machine:
 - arm64-apple-darwin20.0.0
+ncurses:
+- '6'
 pin_run_as_build:
-  boost:
-    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
 python:
 - 3.10.* *_cpython
+re2:
+- 2024.07.02
 target_platform:
 - osx-arm64
+wcslib:
+- '8'
